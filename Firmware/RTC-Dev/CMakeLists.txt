@@ -11,8 +11,8 @@ set(CMAKE_BUILD_TYPE Debug)
 # Edit this section based on the target platform
 ########################################################################
 set(MCU_FAMILY STM32L4xx)
-set(MCU_MODEL STM32L476xx)
-set(MCU_PART STM32L476RGTx)
+set(MCU_MODEL STM32L496xx)
+set(MCU_PART STM32L496RGTx)
 
 set(CPU_PARAMETERS
     -mcpu=cortex-m4
@@ -122,6 +122,7 @@ target_link_options(${EXECUTABLE} PRIVATE
     -Wl,-Map=${CMAKE_PROJECT_NAME}.map,--cref
     --specs=nosys.specs
     -Wl,--undefined,_printf_float
+    -Wl,--no-warn-rwx-segment
     -Wl,--start-group
     -lc
     -lm

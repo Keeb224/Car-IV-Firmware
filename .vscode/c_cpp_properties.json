@@ -292,6 +292,36 @@
             "cppStandard": "c++17"
         },
         {
+            "name": "RTC-Dev",
+            "intelliSenseMode": "gcc-arm",
+            "includePath": [
+                "${common_includes}",
+                "Firmware/RTC-Dev/Core/Inc",
+                "Firmware/RTC-Dev/User/Inc",
+                "${stm32l4_includes}"
+            ],
+            "browse": {
+                "path": [
+                    "${stm32l4_sources}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "defines": [
+                "STM32L476xx",
+                "USE_HAL_DRIVER"
+            ],
+            "compilerArgs": [
+                "-mcpu=cortex-m4",
+                "-mthumb",
+                "-mfpu=fpv4-sp-d16",
+                "-mfloat-abi=hard"
+            ],
+            "forcedInclude": [],
+            "compilerPath": "${gccExePath}",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        },
+        {
             "name": "steering-2023",                   // Project dependent
             "intelliSenseMode": "gcc-arm",
             "includePath": [
