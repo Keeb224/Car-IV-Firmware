@@ -1,4 +1,5 @@
 #include "user.hpp"
+#include "/Users/robmorrisn/Development/Solar-Gators/Car-IV-Firmware/Resources/ubxlib/ubxlib.h"
 
 /* In this program, two tasks are generated. One is triggered by a periodic timer, which
  * expires every 500ms. The other is a regular thread, which is triggered by and event flag.
@@ -54,14 +55,13 @@ void CPP_UserSetup(void) {
     regular_task_id = osThreadNew((osThreadFunc_t)RegularTask1, NULL, &regular_task_attributes);
     osTimerStart(periodic_timer_id, 1000);
 
-    set_time(23,59,55);
-    set_date(4,3,24);
 }
 
 void PeriodicTask1(void *argument) {
     Logger::LogInfo("Periodic timer fired\n");
     osEventFlagsSet(regular_event, 0x1);
 }
+
 
 //Logs the date in the form Month/Day/Year | Hour:Minute:Second:SubSecond
 void get_time(void)
@@ -126,4 +126,8 @@ void RegularTask1(void *argument) {
         Logger::LogInfo("Hello World!\n");
         HAL_GPIO_TogglePin(OK_LED_GPIO_Port, OK_LED_Pin);
     }
+}
+
+void getCoordinates(){
+
 }

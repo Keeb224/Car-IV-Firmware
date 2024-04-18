@@ -1,5 +1,7 @@
 #include "user.hpp"
 
+#include "sg_rtc.hpp"
+
 #include "threads.h"
 
 #include "etl/format_spec.h"
@@ -286,4 +288,10 @@ void SetThrottle(uint16_t value) {
 
 void SetRegen(uint16_t value) {
     regen_dac.SetValue(value);
+}
+
+void rtcTest(){
+    rtc testRTC;
+    testRTC.set_Date_Time(7,55,30,4,4,24);
+    testRTC.get_Time();
 }

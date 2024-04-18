@@ -9,7 +9,6 @@
 
 #include "user.hpp"
 #include "logger.hpp"
-extern "C" RTC_HandleTypeDef hrtc;
 
 class rtc {
 public:
